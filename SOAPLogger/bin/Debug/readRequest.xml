@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+ 
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:pip="http://www.dmotorworks.com/pip-deal">
+ 
+<soapenv:Header/>
+ 
+<soapenv:Body>
+    <pip:read>
+        <arg0>
+            <password>VF9qw7vTuToz</password>
+            <username>machaikag</username>
+        </arg0>
+        <arg1>
+            <id>3PA0003568</id>
+        </arg1>
+        <arg2>
+            <dealId>782049</dealId>
+            <leasePurchase>Purchase</leasePurchase>
+            <leasePurchaseSpecified>true</leasePurchaseSpecified>
+        </arg2>
+    </pip:read>
+</soapenv:Body>
+ 
+</soapenv:Envelope>
