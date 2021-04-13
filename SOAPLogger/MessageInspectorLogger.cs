@@ -34,7 +34,9 @@ namespace SOAPLogger
 
             xmlDoc.Load(ms);
 
-            File.WriteAllText(@"C:/Users/sudar/source/repos/ConsoleApp5/ConsoleApp5/Models/vena.log", xmlDoc.InnerXml);
+            var filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "xmlDoc.log");
+
+            File.WriteAllText(filePath, xmlDoc.InnerXml);
         }
     }
 }

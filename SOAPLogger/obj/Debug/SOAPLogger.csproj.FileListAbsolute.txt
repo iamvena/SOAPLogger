@@ -5,3 +5,10 @@ C:\Users\sudar\source\repos\SOAPLogger\SOAPLogger\obj\Debug\SOAPLogger.csprojAss
 C:\Users\sudar\source\repos\SOAPLogger\SOAPLogger\obj\Debug\SOAPLogger.csproj.CoreCompileInputs.cache
 C:\Users\sudar\source\repos\SOAPLogger\SOAPLogger\obj\Debug\SOAPLogger.exe
 C:\Users\sudar\source\repos\SOAPLogger\SOAPLogger\obj\Debug\SOAPLogger.pdb
+C:\Users\sudar\Documents\SOAPLogger\SOAPLogger\bin\Debug\SOAPLogger.exe.config
+C:\Users\sudar\Documents\SOAPLogger\SOAPLogger\bin\Debug\SOAPLogger.exe
+C:\Users\sudar\Documents\SOAPLogger\SOAPLogger\bin\Debug\SOAPLogger.pdb
+C:\Users\sudar\Documents\SOAPLogger\SOAPLogger\obj\Debug\SOAPLogger.csprojAssemblyReference.cache
+C:\Users\sudar\Documents\SOAPLogger\SOAPLogger\obj\Debug\SOAPLogger.csproj.CoreCompileInputs.cache
+C:\Users\sudar\Documents\SOAPLogger\SOAPLogger\obj\Debug\SOAPLogger.exe
+C:\Users\sudar\Documents\SOAPLogger\SOAPLogger\obj\Debug\SOAPLogger.pdb

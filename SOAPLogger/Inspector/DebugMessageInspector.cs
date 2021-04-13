@@ -57,9 +57,9 @@ namespace SOAPLogger.Inspector
             lastMessage = requestCopy;
 
             //call logger here
-            //var test = new Log();
+            var messageLog = new MessageInspectorLogger();
 
-            //test.Logger();
+            messageLog.Log();
 
             var m = buffer.CreateMessage();
 
