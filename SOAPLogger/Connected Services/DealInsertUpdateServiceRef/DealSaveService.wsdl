@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://www.dmotorworks.com/pip-deal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="DealSaveService" targetNamespace="http://www.dmotorworks.com/pip-deal" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="https://uat-3pa.dmotorworks.com:443/pip-deal/services/DealInsertUpdate?xsd=1" namespace="http://www.dmotorworks.com/pip-deal" />
+    </xsd:schema>
+  </types>
+  <message name="insertDeal">
+    <part name="parameters" element="tns:insertDeal" />
+  </message>
+  <message name="insertDealResponse">
+    <part name="parameters" element="tns:insertDealResponse" />
+  </message>
+  <message name="DealPIPException">
+    <part name="fault" element="tns:DealPIPException" />
+  </message>
+  <message name="insertDealBulk">
+    <part name="parameters" element="tns:insertDealBulk" />
+  </message>
+  <message name="insertDealBulkResponse">
+    <part name="parameters" element="tns:insertDealBulkResponse" />
+  </message>
+  <message name="updateDeal">
+    <part name="parameters" element="tns:updateDeal" />
+  </message>
+  <message name="updateDealResponse">
+    <part name="parameters" element="tns:updateDealResponse" />
+  </message>
+  <message name="updateDealBulk">
+    <part name="parameters" element="tns:updateDealBulk" />
+  </message>
+  <message name="updateDealBulkResponse">
+    <part name="parameters" element="tns:updateDealBulkResponse" />
+  </message>
+  <message name="getMakeModel">
+    <part name="parameters" element="tns:getMakeModel" />
+  </message>
+  <message name="getMakeModelResponse">
+    <part name="parameters" element="tns:getMakeModelResponse" />
+  </message>
+  <message name="readBulk">
+    <part name="parameters" element="tns:readBulk" />
+  </message>
+  <message name="readBulkResponse">
+    <part name="parameters" element="tns:readBulkResponse" />
+  </message>
+  <message name="readDeal">
+    <part name="parameters" element="tns:readDeal" />
+  </message>
+  <message name="readDealResponse">
+    <part name="parameters" element="tns:readDealResponse" />
+  </message>
+  <message name="readDealBulk">
+    <part name="parameters" element="tns:readDealBulk" />
+  </message>
+  <message name="readDealBulkResponse">
+    <part name="parameters" element="tns:readDealBulkResponse" />
+  </message>
+  <message name="read">
+    <part name="parameters" element="tns:read" />
+  </message>
+  <message name="readResponse">
+    <part name="parameters" element="tns:readResponse" />
+  </message>
+  <portType name="DealSave">
+    <operation name="insertDeal">
+      <input wsam:Action="http://www.dmotorworks.com/pip-deal/DealSave/insertDealRequest" message="tns:insertDeal" />
+      <output wsam:Action="http://www.dmotorworks.com/pip-deal/DealSave/insertDealResponse" message="tns:insertDealResponse" />
+      <fault wsam:Action="http://www.dmotorworks.com/pip-deal/DealSave/insertDeal/Fault/DealPIPException" name="DealPIPException" message="tns:DealPIPException" />
+    </operation>
+    <operation name="insertDealBulk">
+      <input wsam:Action="http://www.dmotorworks.com/pip-deal/DealSave/insertDealBulkRequest" message="tns:insertDealBulk" />
+      <output wsam:Action="http://www.dmotorworks.com/pip-deal/DealSave/insertDealBulkResponse" message="tns:insertDealBulkResponse" />
+      <fault wsam:Action="http://www.dmotorworks.com/pip-deal/DealSave/insertDealBulk/Fault/DealPIPException" name="DealPIPException" message="tns:DealPIPException" />
+    </operation>
+    <operation name="updateDeal">
+      <input wsam:Action="http://www.dmotorworks.com/pip-deal/DealSave/updateDealRequest" message="tns:updateDeal" />
+      <output wsam:Action="http://www.dmotorworks.com/pip-deal/DealSave/updateDealResponse" message="tns:updateDealResponse" />
+      <fault wsam:Action="http://www.dmotorworks.com/pip-deal/DealSave/updateDeal/Fault/DealPIPException" name="DealPIPException" message="tns:DealPIPException" />
+    </operation>
+    <operation name="updateDealBulk">
+      <input wsam:Action="http://www.dmotorworks.com/pip-deal/DealSave/updateDealBulkRequest" message="tns:updateDealBulk" />
+      <output wsam:Action="http://www.dmotorworks.com/pip-deal/DealSave/updateDealBulkResponse" message="tns:updateDealBulkResponse" />
+      <fault wsam:Action="http://www.dmotorworks.com/pip-deal/DealSave/updateDealBulk/Fault/DealPIPException" name="DealPIPException" message="tns:DealPIPException" />
+    </operation>
+    <operation name="getMakeModel">
+      <input wsam:Action="http://www.dmotorworks.com/pip-deal/DealSave/getMakeModelRequest" message="tns:getMakeModel" />
+      <output wsam:Action="http://www.dmotorworks.com/pip-deal/DealSave/getMakeModelResponse" message="tns:getMakeModelResponse" />
+      <fault wsam:Action="http://www.dmotorworks.com/pip-deal/DealSave/getMakeModel/Fault/DealPIPException" name="DealPIPException" message="tns:DealPIPException" />
+    </operation>
+    <operation name="readBulk">
+      <input wsam:Action="http://www.dmotorworks.com/pip-deal/DealSave/readBulkRequest" message="tns:readBulk" />
+      <output wsam:Action="http://www.dmotorworks.com/pip-deal/DealSave/readBulkResponse" message="tns:readBulkResponse" />
+      <fault wsam:Action="http://www.dmotorworks.com/pip-deal/DealSave/readBulk/Fault/DealPIPException" name="DealPIPException" message="tns:DealPIPException" />
+    </operation>
+    <operation name="readDeal">
+      <input wsam:Action="http://www.dmotorworks.com/pip-deal/DealSave/readDealRequest" message="tns:readDeal" />
+      <output wsam:Action="http://www.dmotorworks.com/pip-deal/DealSave/readDealResponse" message="tns:readDealResponse" />
+      <fault wsam:Action="http://www.dmotorworks.com/pip-deal/DealSave/readDeal/Fault/DealPIPException" name="DealPIPException" message="tns:DealPIPException" />
+    </operation>
+    <operation name="readDealBulk">
+      <input wsam:Action="http://www.dmotorworks.com/pip-deal/DealSave/readDealBulkRequest" message="tns:readDealBulk" />
+      <output wsam:Action="http://www.dmotorworks.com/pip-deal/DealSave/readDealBulkResponse" message="tns:readDealBulkResponse" />
+      <fault wsam:Action="http://www.dmotorworks.com/pip-deal/DealSave/readDealBulk/Fault/DealPIPException" name="DealPIPException" message="tns:DealPIPException" />
+    </operation>
+    <operation name="read">
+      <input wsam:Action="http://www.dmotorworks.com/pip-deal/DealSave/readRequest" message="tns:read" />
+      <output wsam:Action="http://www.dmotorworks.com/pip-deal/DealSave/readResponse" message="tns:readResponse" />
+      <fault wsam:Action="http://www.dmotorworks.com/pip-deal/DealSave/read/Fault/DealPIPException" name="DealPIPException" message="tns:DealPIPException" />
+    </operation>
+  </portType>
+  <binding name="DealSavePortBinding" type="tns:DealSave">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="insertDeal">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="DealPIPException">
+        <soap:fault use="literal" name="DealPIPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="insertDealBulk">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="DealPIPException">
+        <soap:fault use="literal" name="DealPIPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="updateDeal">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="DealPIPException">
+        <soap:fault use="literal" name="DealPIPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="updateDealBulk">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="DealPIPException">
+        <soap:fault use="literal" name="DealPIPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getMakeModel">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="DealPIPException">
+        <soap:fault use="literal" name="DealPIPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="readBulk">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="DealPIPException">
+        <soap:fault use="literal" name="DealPIPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="readDeal">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="DealPIPException">
+        <soap:fault use="literal" name="DealPIPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="readDealBulk">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="DealPIPException">
+        <soap:fault use="literal" name="DealPIPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="read">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="DealPIPException">
+        <soap:fault use="literal" name="DealPIPException" namespace="" />
+      </fault>
+    </operation>
+  </binding>
+  <service name="DealSaveService">
+    <port name="DealSavePort" binding="tns:DealSavePortBinding">
+      <soap:address location="https://uat-3pa.dmotorworks.com:443/pip-deal/services/DealInsertUpdate" />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,657 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.dmotorworks.com/pip-deal" targetNamespace="http://www.dmotorworks.com/pip-deal" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="DealPIPException" type="tns:DealPIPException" />
+  <xs:element name="financing" type="tns:financing" />
+  <xs:element name="getMakeModel" type="tns:getMakeModel" />
+  <xs:element name="getMakeModelResponse" type="tns:getMakeModelResponse" />
+  <xs:element name="insertDeal" type="tns:insertDeal" />
+  <xs:element name="insertDealBulk" type="tns:insertDealBulk" />
+  <xs:element name="insertDealBulkResponse" type="tns:insertDealBulkResponse" />
+  <xs:element name="insertDealResponse" type="tns:insertDealResponse" />
+  <xs:element name="read" type="tns:read" />
+  <xs:element name="readBulk" type="tns:readBulk" />
+  <xs:element name="readBulkResponse" type="tns:readBulkResponse" />
+  <xs:element name="readDeal" type="tns:readDeal" />
+  <xs:element name="readDealBulk" type="tns:readDealBulk" />
+  <xs:element name="readDealBulkResponse" type="tns:readDealBulkResponse" />
+  <xs:element name="readDealResponse" type="tns:readDealResponse" />
+  <xs:element name="readResponse" type="tns:readResponse" />
+  <xs:element name="updateDeal" type="tns:updateDeal" />
+  <xs:element name="updateDealBulk" type="tns:updateDealBulk" />
+  <xs:element name="updateDealBulkResponse" type="tns:updateDealBulkResponse" />
+  <xs:element name="updateDealResponse" type="tns:updateDealResponse" />
+  <xs:complexType name="insertDealBulk">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:authenticationToken" />
+      <xs:element minOccurs="0" name="arg1" type="tns:dealerId" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="arg2" type="tns:deal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="authenticationToken">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="password" type="xs:string" />
+      <xs:element minOccurs="0" name="username" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="dealerId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="deal">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="documentId" type="xs:string" />
+      <xs:element minOccurs="0" name="dealStatus" type="xs:string" />
+      <xs:element minOccurs="0" name="dealType" type="xs:string" />
+      <xs:element minOccurs="0" name="checksum" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="customers" nillable="true" type="tns:customerParty" />
+      <xs:element minOccurs="0" name="dealer" type="tns:dealer" />
+      <xs:element minOccurs="0" name="financeCompany" type="tns:financeCompany" />
+      <xs:element minOccurs="0" ref="tns:financing" />
+      <xs:element minOccurs="0" name="vehicle" type="tns:vehicle" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="customerParty">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="address" type="tns:address" />
+      <xs:element minOccurs="0" name="alternatePartyId" type="tns:alternatePartyId" />
+      <xs:element name="cobuyer" type="xs:boolean" />
+      <xs:element minOccurs="0" name="contact" type="tns:contact" />
+      <xs:element minOccurs="0" name="demographics" type="tns:demographics" />
+      <xs:element minOccurs="0" name="name" type="tns:name" />
+      <xs:element minOccurs="0" name="partyId" type="tns:partyId" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="address">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="addressBase" type="tns:addressBase" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="addressBase">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="addressLines" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="city" type="xs:string" />
+      <xs:element minOccurs="0" name="county" type="xs:string" />
+      <xs:element minOccurs="0" name="postalCode" type="xs:string" />
+      <xs:element minOccurs="0" name="stateOrProvince" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="alternatePartyId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="assigningPartyId" type="tns:assigningPartyId" />
+      <xs:element minOccurs="0" name="assigningPartyId2" type="tns:assigningPartyId" />
+      <xs:element minOccurs="0" name="expirationDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="issuingState" type="xs:string" />
+      <xs:element minOccurs="0" name="value" type="xs:string" />
+      <xs:element minOccurs="0" name="value2" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="contact">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="email" nillable="true" type="tns:email" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="telephoneNumber" nillable="true" type="tns:telephoneNumber" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="email">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="desc" type="tns:emailDesc" />
+      <xs:element minOccurs="0" name="value" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="telephoneNumber">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="desc" type="tns:telephoneNumberDesc" />
+      <xs:element minOccurs="0" name="value" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="demographics">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="birthDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="name">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="companyName" type="xs:string" />
+      <xs:element minOccurs="0" name="firstName" type="xs:string" />
+      <xs:element minOccurs="0" name="fullname" type="xs:string" />
+      <xs:element minOccurs="0" name="lastName" type="xs:string" />
+      <xs:element minOccurs="0" name="middleName" type="xs:string" />
+      <xs:element minOccurs="0" name="nameType" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="partyId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="value" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="dealer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="closingManagerId" type="xs:string" />
+      <xs:element minOccurs="0" name="fiManagerId" type="xs:string" />
+      <xs:element minOccurs="0" name="salesManagerId" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="salesPersonIds" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="financeCompany">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="tns:partyId" />
+      <xs:element minOccurs="0" name="name" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="financing">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="additionalResidualAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="adjustedCapCost" type="xs:decimal" />
+      <xs:element minOccurs="0" name="basePaymentAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="cashAmountDue" type="xs:decimal" />
+      <xs:element minOccurs="0" name="deferredDownPaymentAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="leaseEndPercentRate" type="xs:decimal" />
+      <xs:element minOccurs="0" name="leaseEndValue" type="xs:decimal" />
+      <xs:element minOccurs="0" name="leaseRateMoneyFactor" type="xs:string" />
+      <xs:element minOccurs="0" name="mileageExpectedFlag" type="xs:string" />
+      <xs:element minOccurs="0" name="annualPercentageRate" type="xs:decimal" />
+      <xs:element minOccurs="0" name="balloonAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="balloonRate" type="xs:decimal" />
+      <xs:element minOccurs="0" name="residualAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="downPaymentAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="miscellaneousNotes" type="xs:string" />
+      <xs:element minOccurs="0" name="contractDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="daysToFirst" type="xs:int" />
+      <xs:element minOccurs="0" name="financeType" type="xs:string" />
+      <xs:element minOccurs="0" name="securityDepositAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="depositType" type="xs:string" />
+      <xs:element minOccurs="0" name="dueOnDelivery" type="xs:decimal" />
+      <xs:element minOccurs="0" name="finalAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="finalDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="netAmountFinanced" type="xs:decimal" />
+      <xs:element minOccurs="0" name="financeCharge" type="xs:decimal" />
+      <xs:element minOccurs="0" name="firstdate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="lastAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="lastDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="estimatedAnnualMileage" type="xs:int" />
+      <xs:element minOccurs="0" name="monthlyMileageLimit" type="xs:int" />
+      <xs:element minOccurs="0" name="mileagePenaltyAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="costPerMile" type="xs:decimal" />
+      <xs:element minOccurs="0" name="totalMileageExpected" type="xs:int" />
+      <xs:element minOccurs="0" name="totalMileageLimit" type="xs:int" />
+      <xs:element minOccurs="0" name="paymentAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="paymentAmountTaxFee" type="xs:decimal" />
+      <xs:element minOccurs="0" name="paymentCode" type="xs:string" />
+      <xs:element minOccurs="0" name="paymentQuantity" type="xs:int" />
+      <xs:element minOccurs="0" name="manufacturerRebateAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="rebateAmountDue" type="xs:decimal" />
+      <xs:element minOccurs="0" name="rebateCapReduction" type="xs:decimal" />
+      <xs:element minOccurs="0" name="purchasePrice" type="xs:decimal" />
+      <xs:element minOccurs="0" name="termLength" type="xs:int" />
+      <xs:element minOccurs="0" name="totalProductAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="totalReductionsAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="totalPayment" type="xs:decimal" />
+      <xs:element minOccurs="0" name="totalNetTradeValue" type="xs:decimal" />
+      <xs:element minOccurs="0" name="totalSalesTax" type="xs:decimal" />
+      <xs:element minOccurs="0" name="totalTradeACV" type="xs:decimal" />
+      <xs:element minOccurs="0" name="totalTradeAllowance" type="xs:decimal" />
+      <xs:element minOccurs="0" name="totalTradePayoff" type="xs:decimal" />
+      <xs:element minOccurs="0" name="proRataDollarAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="proRataTaxAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="louisianaTradeVerification" type="xs:int" />
+      <xs:element minOccurs="0" name="taxCreditOnTrade2" type="xs:int" />
+      <xs:element minOccurs="0" name="cashCapReduction" type="xs:decimal" />
+      <xs:element minOccurs="0" name="insuranceTypeCode" type="xs:string" />
+      <xs:element minOccurs="0" name="trade1AllowLessRetainedEquity" type="xs:decimal" />
+      <xs:element minOccurs="0" name="trade2AllowLessRetainedEquity" type="xs:decimal" />
+      <xs:element minOccurs="0" name="trade1RetainEquity" type="xs:decimal" />
+      <xs:element minOccurs="0" name="trade2RetainEquity" type="xs:decimal" />
+      <xs:element minOccurs="0" name="taxCreditOnTrade1Flag" type="xs:int" />
+      <xs:element minOccurs="0" name="taxCreditOnTrade2Flag" type="xs:int" />
+      <xs:element minOccurs="0" name="inServiceDate" type="xs:string" />
+      <xs:element minOccurs="0" name="pickupDate1" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="pickupDate2" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="pickupDate3" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="pickupPay1" type="xs:decimal" />
+      <xs:element minOccurs="0" name="pickupPay1Days" type="xs:int" />
+      <xs:element minOccurs="0" name="pickupPay1PlusInterest" type="xs:decimal" />
+      <xs:element minOccurs="0" name="pickupPay2" type="xs:decimal" />
+      <xs:element minOccurs="0" name="pickupPay2Days" type="xs:int" />
+      <xs:element minOccurs="0" name="pickupPay2PlusInterest" type="xs:decimal" />
+      <xs:element minOccurs="0" name="pickupPay3" type="xs:decimal" />
+      <xs:element minOccurs="0" name="pickupPay3Days" type="xs:int" />
+      <xs:element minOccurs="0" name="pickupPay3PlusInterest" type="xs:decimal" />
+      <xs:element minOccurs="0" name="fullAPR" type="xs:decimal" />
+      <xs:element minOccurs="0" name="fairMarketValue" type="xs:decimal" />
+      <xs:element minOccurs="0" name="dorValue" type="xs:decimal" />
+      <xs:element minOccurs="0" name="openROandPOCostDescriptions" type="xs:string" />
+      <xs:element minOccurs="0" name="openROandPOCostAmounts" type="xs:string" />
+      <xs:element minOccurs="0" name="otherCostAmounts" type="xs:string" />
+      <xs:element minOccurs="0" name="otherCostDescriptions" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="taxes" nillable="true" type="tns:tax" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="fees" nillable="true" type="tns:fee" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="products" nillable="true" type="tns:product" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tradeins" nillable="true" type="tns:tradeIn" />
+      <xs:element minOccurs="0" name="onePay" type="tns:onePay" />
+      <xs:element minOccurs="0" name="proRata" type="tns:proRata" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="rebates" nillable="true" type="tns:rebate" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tax">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="taxAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="taxBase" type="xs:decimal" />
+      <xs:element minOccurs="0" name="taxDescription" type="xs:string" />
+      <xs:element minOccurs="0" name="taxRate" type="xs:decimal" />
+      <xs:element minOccurs="0" name="taxThreshold" type="xs:decimal" />
+      <xs:element minOccurs="0" name="taxType" type="tns:taxType" />
+      <xs:element minOccurs="0" name="type" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="fee">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="feeAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="feeDescription" type="xs:string" />
+      <xs:element minOccurs="0" name="feeType" type="tns:feeType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="product">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AHCostControlFlag" type="xs:string" />
+      <xs:element minOccurs="0" name="AHPremiumCostAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CLCostControlFlag" type="xs:string" />
+      <xs:element minOccurs="0" name="CLInsurancePremiumCostAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="contractAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="contractCompanyName" type="xs:string" />
+      <xs:element minOccurs="0" name="contractCost" type="xs:decimal" />
+      <xs:element minOccurs="0" name="contractDeductible" type="xs:decimal" />
+      <xs:element minOccurs="0" name="contractFee" type="xs:decimal" />
+      <xs:element minOccurs="0" name="contractFeeLEV" type="xs:decimal" />
+      <xs:element minOccurs="0" name="contractId" type="xs:string" />
+      <xs:element minOccurs="0" name="contractMonthlyFee" type="xs:decimal" />
+      <xs:element minOccurs="0" name="contractRate" type="xs:decimal" />
+      <xs:element minOccurs="0" name="contractRateLEV" type="xs:decimal" />
+      <xs:element minOccurs="0" name="contractRateTable" type="xs:string" />
+      <xs:element minOccurs="0" name="contractTermMileage" type="xs:decimal" />
+      <xs:element minOccurs="0" name="contractType" type="tns:contractType" />
+      <xs:element minOccurs="0" name="contractTypeCode" type="xs:string" />
+      <xs:element minOccurs="0" name="insuranceActualCost" type="xs:decimal" />
+      <xs:element minOccurs="0" name="insuranceCostControlFlag" type="xs:string" />
+      <xs:element minOccurs="0" name="leaseMBICostControlFlag" type="xs:string" />
+      <xs:element minOccurs="0" name="serviceContractInsCostAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="serviceContractInsCostControlFlag" type="xs:string" />
+      <xs:element minOccurs="0" name="suppressGpCostInit" type="xs:string" />
+      <xs:element minOccurs="0" name="term" type="xs:int" />
+      <xs:element minOccurs="0" name="texasGAPFlag" type="xs:string" />
+      <xs:element minOccurs="0" name="totalContractAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="totalContractAmountLEV" type="xs:decimal" />
+      <xs:element minOccurs="0" name="totalMonthlyContractFee" type="xs:decimal" />
+      <xs:element minOccurs="0" name="unemploymentInsuranceFlag" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tradeIn">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="bodyStyle" type="xs:string" />
+      <xs:element minOccurs="0" name="deliveryMileage" type="xs:int" />
+      <xs:element minOccurs="0" name="exteriorColor" type="xs:string" />
+      <xs:element minOccurs="0" name="make" type="xs:string" />
+      <xs:element minOccurs="0" name="model" type="xs:string" />
+      <xs:element minOccurs="0" name="modelDescription" type="xs:string" />
+      <xs:element minOccurs="0" name="modelType" type="xs:string" />
+      <xs:element minOccurs="0" name="modelYear" type="xs:int" />
+      <xs:element minOccurs="0" name="option" type="tns:option" />
+      <xs:element minOccurs="0" name="salesStockNumber" type="xs:string" />
+      <xs:element minOccurs="0" name="tradeInFinancing" type="tns:tradeInFinancing" />
+      <xs:element minOccurs="0" name="VIN" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="option">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="name" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tradeInFinancing">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="actualCashValue" type="xs:decimal" />
+      <xs:element minOccurs="0" name="balanceAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="financeCompany" type="tns:financeCompany" />
+      <xs:element minOccurs="0" name="financeCompanyName" type="xs:string" />
+      <xs:element minOccurs="0" name="grossTradeIn" type="xs:decimal" />
+      <xs:element minOccurs="0" name="leaseFlag" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="onePay">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="amount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="annualPercentageRate" type="xs:decimal" />
+      <xs:element minOccurs="0" name="feeAmount" type="tns:fee" />
+      <xs:element minOccurs="0" name="indicator" type="xs:string" />
+      <xs:element minOccurs="0" name="paymentAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="totalPayment" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="proRata">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="prorataDays" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="rebate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="rebateAmount" type="xs:string" />
+      <xs:element minOccurs="0" name="rebateCode" type="xs:string" />
+      <xs:element minOccurs="0" name="rebateDescription" type="xs:string" />
+      <xs:element minOccurs="0" name="rebateID" type="xs:string" />
+      <xs:element minOccurs="0" name="rebateSeq" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vehicle">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="bodyStyle" type="xs:string" />
+      <xs:element minOccurs="0" name="exteriorColor" type="xs:string" />
+      <xs:element minOccurs="0" name="financeCompanyName" type="xs:string" />
+      <xs:element minOccurs="0" name="make" type="xs:string" />
+      <xs:element minOccurs="0" name="mileage" type="xs:int" />
+      <xs:element minOccurs="0" name="model" type="xs:string" />
+      <xs:element minOccurs="0" name="modelType" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="pricing" nillable="true" type="tns:pricing" />
+      <xs:element minOccurs="0" name="stockType" type="xs:string" />
+      <xs:element minOccurs="0" name="vehicleStock" type="xs:string" />
+      <xs:element minOccurs="0" name="vin" type="xs:string" />
+      <xs:element minOccurs="0" name="year" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pricing">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="price" type="xs:decimal" />
+      <xs:element minOccurs="0" name="pricingType" type="tns:vehiclePricingType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertDealBulkResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:dealSaveResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="dealSaveResult">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:abstractDealResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="deal" type="tns:deal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="abstractDealResult" abstract="true">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="code" type="tns:resultCode" />
+      <xs:element minOccurs="0" name="message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DealPIPException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateDealBulk">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:authenticationToken" />
+      <xs:element minOccurs="0" name="arg1" type="tns:dealerId" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="arg2" type="tns:deal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateDealBulkResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:dealSaveResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="readDealBulk">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:authenticationToken" />
+      <xs:element minOccurs="0" name="arg1" type="tns:dealerId" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="arg2" type="tns:dealReadRequest" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="dealReadRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="dealId" type="xs:string" />
+      <xs:element minOccurs="0" name="leasePurchase" type="tns:leasePurchase" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="readDealBulkResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:dealReadResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="dealReadResult">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:abstractDealResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="deal" type="tns:deal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="readDeal">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:authenticationToken" />
+      <xs:element minOccurs="0" name="arg1" type="tns:dealerId" />
+      <xs:element minOccurs="0" name="arg2" type="tns:dealReadRequest" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="readDealResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:dealReadResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateDeal">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:authenticationToken" />
+      <xs:element minOccurs="0" name="arg1" type="tns:dealerId" />
+      <xs:element minOccurs="0" name="arg2" type="tns:deal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateDealResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:dealSaveResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="read">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:authenticationToken" />
+      <xs:element minOccurs="0" name="arg1" type="tns:dealerId" />
+      <xs:element minOccurs="0" name="arg2" type="tns:dealReadRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="readResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:dealReadResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getMakeModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:authenticationToken" />
+      <xs:element minOccurs="0" name="arg1" type="tns:dealerId" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getMakeModelResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:makeModelResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="makeModelResult">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:abstractDealResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="makeCode" type="xs:string" />
+          <xs:element minOccurs="0" name="makeFullName" type="xs:string" />
+          <xs:element minOccurs="0" name="modelCode" type="xs:string" />
+          <xs:element minOccurs="0" name="modelFullName" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="insertDeal">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:authenticationToken" />
+      <xs:element minOccurs="0" name="arg1" type="tns:dealerId" />
+      <xs:element minOccurs="0" name="arg2" type="tns:deal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertDealResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:dealSaveResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="readBulk">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:authenticationToken" />
+      <xs:element minOccurs="0" name="arg1" type="tns:dealerId" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="arg2" type="tns:dealReadRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="readBulkResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:dealReadResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="assigningPartyId">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DriversLicense" />
+      <xs:enumeration value="NationalID" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="emailDesc">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Home" />
+      <xs:enumeration value="Work" />
+      <xs:enumeration value="Cellular" />
+      <xs:enumeration value="Vehicle" />
+      <xs:enumeration value="PDA" />
+      <xs:enumeration value="Other" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="telephoneNumberDesc">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Home" />
+      <xs:enumeration value="Work" />
+      <xs:enumeration value="Cellular" />
+      <xs:enumeration value="Pager" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="taxType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PurchaseFlexibleTax1" />
+      <xs:enumeration value="PurchaseFlexibleTax2" />
+      <xs:enumeration value="ServiceTax" />
+      <xs:enumeration value="TotalTaxes" />
+      <xs:enumeration value="Tax1" />
+      <xs:enumeration value="Tax2" />
+      <xs:enumeration value="Tax3" />
+      <xs:enumeration value="Tax4" />
+      <xs:enumeration value="USLuxuryExciseTax" />
+      <xs:enumeration value="WeOweTaxTotal1" />
+      <xs:enumeration value="WeOweTaxTotal2" />
+      <xs:enumeration value="WeOweTaxTotal3" />
+      <xs:enumeration value="WeOweTaxTotal4" />
+      <xs:enumeration value="AdValoremProvSalesTax" />
+      <xs:enumeration value="CapCostReductionTax1" />
+      <xs:enumeration value="CapCostReductionTax2" />
+      <xs:enumeration value="ClAhInsuranceTax" />
+      <xs:enumeration value="LeaseFlexibleTax1" />
+      <xs:enumeration value="LeaseFlexibleTax2" />
+      <xs:enumeration value="LeaseFlexibleTax3" />
+      <xs:enumeration value="LeaseFlexibleTax4" />
+      <xs:enumeration value="LeaseFlexibleTax5" />
+      <xs:enumeration value="LeaseFlexibleTax6" />
+      <xs:enumeration value="LSTGST" />
+      <xs:enumeration value="LuxuryTax" />
+      <xs:enumeration value="Tax4Amount1" />
+      <xs:enumeration value="Tax4Amount2" />
+      <xs:enumeration value="Tax4Amount3" />
+      <xs:enumeration value="Tax4Info1" />
+      <xs:enumeration value="Tax4Info2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="feeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Fee1" />
+      <xs:enumeration value="Fee2" />
+      <xs:enumeration value="Fee3" />
+      <xs:enumeration value="Fee4" />
+      <xs:enumeration value="Fee5" />
+      <xs:enumeration value="Fee6" />
+      <xs:enumeration value="Fee7" />
+      <xs:enumeration value="Fee8" />
+      <xs:enumeration value="Fee9" />
+      <xs:enumeration value="Fee10" />
+      <xs:enumeration value="WeOweBackSaleTotal" />
+      <xs:enumeration value="WeOweBackCostTotal" />
+      <xs:enumeration value="WeOweDMVTotal" />
+      <xs:enumeration value="WeOweSaleTotal" />
+      <xs:enumeration value="AddToCapCostFee1" />
+      <xs:enumeration value="AddToCapCostFee2" />
+      <xs:enumeration value="AddToCapCostFee3" />
+      <xs:enumeration value="AddToCapCostFee4" />
+      <xs:enumeration value="AddToCapCostFee5" />
+      <xs:enumeration value="AddToCapCostFee6" />
+      <xs:enumeration value="AddToCapCostFee7" />
+      <xs:enumeration value="TotalFees" />
+      <xs:enumeration value="AddToPriceFee1" />
+      <xs:enumeration value="AddToPriceFee2" />
+      <xs:enumeration value="AnnualFee1" />
+      <xs:enumeration value="AnnualFee2" />
+      <xs:enumeration value="AnnualFee3" />
+      <xs:enumeration value="AnnualFee4" />
+      <xs:enumeration value="AnnualFee5" />
+      <xs:enumeration value="InitialFee1" />
+      <xs:enumeration value="InitialFee2" />
+      <xs:enumeration value="InitialFee3" />
+      <xs:enumeration value="InitialFee4" />
+      <xs:enumeration value="InitialFee5" />
+      <xs:enumeration value="InitialFee6" />
+      <xs:enumeration value="InitialFee7" />
+      <xs:enumeration value="InitialFee8" />
+      <xs:enumeration value="InitialFee9" />
+      <xs:enumeration value="InitialFee10" />
+      <xs:enumeration value="MSRPAddition" />
+      <xs:enumeration value="MSRPFee1" />
+      <xs:enumeration value="MSRPFee2" />
+      <xs:enumeration value="SecurityDeposit" />
+      <xs:enumeration value="TotalAnnualFees2" />
+      <xs:enumeration value="TotalInitialFees" />
+      <xs:enumeration value="WeOweResidualTableTotal" />
+      <xs:enumeration value="WeOweResidualTotal" />
+      <xs:enumeration value="WeOweSaleHardTotal" />
+      <xs:enumeration value="WeOweSaleSoftTotal" />
+      <xs:enumeration value="TotalFinanceCharge" />
+      <xs:enumeration value="OnePaySecurityDeposit" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="contractType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Insurance1" />
+      <xs:enumeration value="Insurance2" />
+      <xs:enumeration value="Insurance3" />
+      <xs:enumeration value="MBI" />
+      <xs:enumeration value="TexasGap" />
+      <xs:enumeration value="AccidentAndHealth" />
+      <xs:enumeration value="CreditLife" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="vehiclePricingType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="MSRP" />
+      <xs:enumeration value="BaseMSRP" />
+      <xs:enumeration value="OutTheDoor" />
+      <xs:enumeration value="OddDays" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="resultCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="success" />
+      <xs:enumeration value="failure" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="leasePurchase">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Purchase" />
+      <xs:enumeration value="Lease" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

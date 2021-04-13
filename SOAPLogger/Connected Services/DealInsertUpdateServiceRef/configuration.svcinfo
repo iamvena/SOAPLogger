@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configurationSnapshot xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:schemas-microsoft-com:xml-wcfconfigurationsnapshot">
+  <behaviors />
+  <bindings>
+    <binding digest="System.ServiceModel.Configuration.BasicHttpBindingElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089:&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;&lt;Data name=&quot;DealSavePortBinding&quot;&gt;&lt;security mode=&quot;Transport&quot; /&gt;&lt;/Data&gt;" bindingType="basicHttpBinding" name="DealSavePortBinding" />
+    <binding digest="System.ServiceModel.Configuration.BasicHttpBindingElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089:&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;&lt;Data name=&quot;DealSavePortBinding1&quot; /&gt;" bindingType="basicHttpBinding" name="DealSavePortBinding1" />
+  </bindings>
+  <endpoints>
+    <endpoint normalizedDigest="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;&lt;Data address=&quot;https://uat-3pa.dmotorworks.com:443/pip-deal/services/DealInsertUpdate&quot; binding=&quot;basicHttpBinding&quot; bindingConfiguration=&quot;DealSavePortBinding&quot; contract=&quot;DealInsertUpdateServiceRef.DealSave&quot; name=&quot;DealSavePort&quot; /&gt;" digest="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;&lt;Data address=&quot;https://uat-3pa.dmotorworks.com:443/pip-deal/services/DealInsertUpdate&quot; binding=&quot;basicHttpBinding&quot; bindingConfiguration=&quot;DealSavePortBinding&quot; contract=&quot;DealInsertUpdateServiceRef.DealSave&quot; name=&quot;DealSavePort&quot; /&gt;" contractName="DealInsertUpdateServiceRef.DealSave" name="DealSavePort" />
+  </endpoints>
+</configurationSnapshot>
