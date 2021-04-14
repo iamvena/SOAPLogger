@@ -11,7 +11,7 @@ namespace SOAPLogger
         static void Main(string[] args)
         {
             //uses SoapExtension to extract soap request/ response message
-             var cdkReadDeal = new CdkHelper();
+            var cdkReadDeal = new CdkHelper();
 
             cdkReadDeal.Execute();
 

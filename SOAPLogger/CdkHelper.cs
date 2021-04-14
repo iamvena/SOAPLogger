@@ -38,10 +38,10 @@ namespace SOAPLogger
             read.leasePurchaseSpecified = true;
 
 
-            //Add this class to use the inspector message logger
-            soap.Endpoint.EndpointBehaviors.Add(new DebugMessageBehavior());
+            ////Add this class to use the inspector message logger
+            //soap.Endpoint.EndpointBehaviors.Add(new DebugMessageBehavior());
 
-            
+
             soap.read(authToken, dealerId, read);
         }
     }
