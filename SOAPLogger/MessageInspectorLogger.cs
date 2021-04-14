@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.ServiceModel.Channels;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
@@ -14,15 +15,13 @@ namespace SOAPLogger
     /// </summary>
     public class MessageInspectorLogger
     {
-        public void Log()
+        public void Log(Message lastMessage)
         {
-            var debugMessage = DebugMessageInspector.lastMessage;
-
             var ms = new MemoryStream();
 
             XmlWriter writer = XmlWriter.Create(ms);
 
-            debugMessage.WriteMessage(writer);
+            lastMessage.WriteMessage(writer);
 
             writer.Flush();
 

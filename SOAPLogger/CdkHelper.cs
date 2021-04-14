@@ -41,7 +41,7 @@ namespace SOAPLogger
             //Add this class to use the inspector message logger
             soap.Endpoint.EndpointBehaviors.Add(new DebugMessageBehavior());
 
-            //but it will get an error here saying the message has alread been copied
+            
             soap.read(authToken, dealerId, read);
         }
     }

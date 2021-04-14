@@ -10,20 +10,19 @@ namespace SOAPLogger
     {
         static void Main(string[] args)
         {
-            //uses SoapExtension to extract soap request/response message
-            var cdkReadDeal = new CdkHelper();
+            //uses SoapExtension to extract soap request/ response message
+             var cdkReadDeal = new CdkHelper();
 
             cdkReadDeal.Execute();
+
+            //var vehicleDrilldownHelper = new VehicleDrilldownHelper();
+
+            //vehicleDrilldownHelper.GetMakes();
 
             ////dani tawagon if sa atoa gikan ang soap message - xml
             //var soapRequest = new SOAPRequestSample();
 
             //soapRequest.Invoke("VF9qw7vTuToz", "machaikag", "3PA0003568", "782049", "Purchase");
-
-            //mao ni sha ang another approach to extract soap request/response message
-            var messageInspectorLogger = new MessageInspectorLogger();
-
-            messageInspectorLogger.Log();
         }
     }
 }

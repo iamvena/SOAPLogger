@@ -47,6 +47,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CdkHelper.cs" />
+    <Compile Include="Connected Services\ChromeDataServiceRef\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\DealInsertUpdateServiceRef\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -59,9 +64,65 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SoapRequestSample.cs" />
+    <Compile Include="VehicleDrilldownHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Connected Services\ChromeDataServiceRef\Description7c.wsdl" />
+    <None Include="Connected Services\ChromeDataServiceRef\SOAPLogger.ChromeDataServiceRef.CategoryDefinitions.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ChromeDataServiceRef\SOAPLogger.ChromeDataServiceRef.describeVehicleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ChromeDataServiceRef\SOAPLogger.ChromeDataServiceRef.Divisions.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ChromeDataServiceRef\SOAPLogger.ChromeDataServiceRef.getCategoryDefinitionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ChromeDataServiceRef\SOAPLogger.ChromeDataServiceRef.getDivisionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ChromeDataServiceRef\SOAPLogger.ChromeDataServiceRef.getModelsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ChromeDataServiceRef\SOAPLogger.ChromeDataServiceRef.getModelYearsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ChromeDataServiceRef\SOAPLogger.ChromeDataServiceRef.getStylesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ChromeDataServiceRef\SOAPLogger.ChromeDataServiceRef.getSubdivisionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ChromeDataServiceRef\SOAPLogger.ChromeDataServiceRef.getTechnicalSpecificationDefinitionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ChromeDataServiceRef\SOAPLogger.ChromeDataServiceRef.getVersionInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ChromeDataServiceRef\SOAPLogger.ChromeDataServiceRef.Models.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ChromeDataServiceRef\SOAPLogger.ChromeDataServiceRef.ModelYears.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ChromeDataServiceRef\SOAPLogger.ChromeDataServiceRef.Styles.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ChromeDataServiceRef\SOAPLogger.ChromeDataServiceRef.Subdivisions.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ChromeDataServiceRef\SOAPLogger.ChromeDataServiceRef.TechnicalSpecificationDefinitions.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ChromeDataServiceRef\SOAPLogger.ChromeDataServiceRef.VehicleDescription.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ChromeDataServiceRef\SOAPLogger.ChromeDataServiceRef.VersionInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\DealInsertUpdateServiceRef\DealInsertUpdate.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -107,6 +168,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ChromeDataServiceRef\" />
     <WCFMetadataStorage Include="Connected Services\DealInsertUpdateServiceRef\" />
   </ItemGroup>
   <ItemGroup>
@@ -121,6 +183,17 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Connected Services\ChromeDataServiceRef\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ChromeDataServiceRef\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ChromeDataServiceRef\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
