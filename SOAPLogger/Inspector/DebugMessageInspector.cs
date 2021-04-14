@@ -19,7 +19,17 @@ namespace SOAPLogger.Inspector
         /// <param name="correlationState"></param>
         public void AfterReceiveReply(ref Message reply, object correlationState)
         {
+            MessageBuffer buffer = reply.CreateBufferedCopy(Int32.MaxValue);
 
+            var requestCopy = buffer.CreateMessage();
+
+            var messageLog = new MessageInspectorLogger();
+
+            messageLog.Log(requestCopy);
+
+            reply = buffer.CreateMessage();
+
+            buffer.Close();
         }
 
         /// <summary>
